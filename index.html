@@ -68,6 +68,11 @@ button:hover {
     animation: twinkle 3s infinite alternate;
 }
 
+.glow {
+    color: #fff;
+    text-shadow: 0 0 8px #ffd6e8, 0 0 15px #ff9ce0, 0 0 20px #ff4db2;
+}
+
 @keyframes twinkle {
     from { opacity: 0.3; }
     to { opacity: 1; }
@@ -85,9 +90,9 @@ button:hover {
 <div class="stars"></div>
 
 <div class="container" id="content">
-    <h1>Under This Same Sky, Tanisha…</h1>
+    <h1>Under This Same Sky, <span class="glow">Tanisha</span>…</h1>
     <p>
-        I’m not here to argue.<br>
+        I’m not here to argue or explain.<br>
         I’m here to understand you.
     </p>
     <button onclick="nextPage()">Sit with me for a minute</button>
@@ -113,7 +118,7 @@ in my head I thought I was being sweet.<br><br>
 I thought I was saying,<br>
 “I want to get home fast so I can talk to you.”<br><br>
 But I didn’t stop to think about how it might make you anxious.<br>
-And I’m sorry for that.
+And I’m so sorry for that mera dil wallahi.
 </p>
 <button onclick="nextPage()">Next</button>`,
 
@@ -130,26 +135,44 @@ you’re the brightest thing in my sky.
 <p>
 I know you feel deeply.<br><br>
 And sometimes when you react,<br>
-it’s not anger — it’s fear of not being heard.<br><br>
-I don’t want to be someone that makes you feel small.<br>
-I want to be someone that makes you feel safe.
+it’s not anger it’s fear of not being heard.<br><br>
+I don’t want to be someone that makes you feel small or unsafe or unheard.<br>
+I want to be someone that makes you feel safe and loved.
 </p>
 <button onclick="nextPage()">Next</button>`,
 
-`<h1>And About You Feeling Sick…</h1>
+`<h1>About You Feeling Sick…</h1>
 <p>
-I know you weren’t feeling well tonight.<br>
-The headache, the nausea…<br><br>
+I know mera dil you arent feeling well tonight.<br>
+The headache, the nausea<br><br>
 I hate that I can’t always be there physically.<br>
-But please know I care more than I sometimes show.<br><br>
+But please know I care more then I show.<br>
 Your health matters to me.<br>
 You matter to me.
+you always will.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>Memory Moment</h1>
+<p>
+I keep thinking about the way you smiled<br>
+when you said I looked handsome today.<br>
+That moment meant more to me than you know.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>Safe With Me</h1>
+<p>
+You don’t have to fight to be heard with me.<br>
+I’m learning to listen without defending.<br>
+I’m learning to slow down not just the car,<br>
+but my emotions too.
 </p>
 <button onclick="nextPage()">Next</button>`,
 
 `<h1>Promise Under The Stars</h1>
 <p>
-I don’t promise perfection.<br>
+I promise perfection.<br>
 I promise effort.<br><br>
 And I promise to never stop choosing you.<br><br>
 Even when it takes patience.<br>
@@ -158,13 +181,17 @@ Even when it takes slowing down.
 </p>
 <button onclick="nextPage()">Next</button>`,
 
-`<h1>Under This Same Sky, Tanisha…</h1>
+`<h1>Under This Same Sky, <span class="glow">Tanisha</span>…</h1>
 <p>
 I choose you calmly.<br>
 I choose you gently.<br>
 I choose you every time.
 </p>
-<button onclick="finalMessage()">Stay with me?</button>`
+<button onclick="finalMessage()">Stay with me?</button>`,
+
+`<h1>I love you.</h1>
+<p>Always.</p>
+<button onclick="resetPages()">Let’s start fresh</button>`
 ];
 
 let currentPage = 0;
@@ -175,9 +202,14 @@ function nextPage() {
 }
 
 function finalMessage() {
-    document.getElementById("content").innerHTML =
-    `<h1>I love you.</h1>
-     <p>Always.</p>`;
+    document.getElementById("content").innerHTML = pages[pages.length-1];
+}
+
+function resetPages() {
+    currentPage = 0;
+    document.getElementById("content").innerHTML = `
+    <h1>Day one.<br>Still choosing <span class="glow">Tanisha</span>.</h1>
+    <button onclick="nextPage()">Sit with me for a minute</button>`;
 }
 
 // Generate stars
