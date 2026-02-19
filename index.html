@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Under This Same Sky, Tanisha 🌙</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to bottom, #0f0c29, #1b1445, #2b1f5e);
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    flex-direction: column;
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 2.5em;
+}
+
+p {
+    max-width: 700px;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    opacity: 0.8;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container" id="content">
+    <h1>Under This Same Sky, Tanisha…</h1>
+    <p>
+        I’m not here to argue.<br>
+        I’m here to understand you.
+    </p>
+    <button onclick="nextPage()">Sit with me for a minute</button>
+</div>
+
+<script>
+const pages = [
+
+`<h1>Tanisha,</h1>
+<p>
+I’ve been thinking quietly.<br><br>
+Not about being right.<br>
+Not about explaining myself.<br><br>
+Just about you.<br><br>
+And how I never want you to feel unheard.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>The Honest Part</h1>
+<p>
+When I sent that driving video,<br>
+in my head I thought I was being sweet.<br><br>
+I thought I was saying,<br>
+“I want to get home fast so I can talk to you.”<br><br>
+But I didn’t stop to think about how it might make you anxious.<br>
+And I’m sorry for that.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>For You</h1>
+<p>
+If I could draw a constellation,<br>
+it would spell your name.<br><br>
+Because even in the dark,<br>
+you’re the brightest thing in my sky.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>I See You</h1>
+<p>
+I know you feel deeply.<br><br>
+And sometimes when you react,<br>
+it’s not anger — it’s fear of not being heard.<br><br>
+I don’t want to be someone that makes you feel small.<br>
+I want to be someone that makes you feel safe.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>And About You Feeling Sick…</h1>
+<p>
+I know you weren’t feeling well tonight.<br>
+The headache, the nausea…<br><br>
+I hate that I can’t always be there physically.<br>
+But please know I care more than I sometimes show.<br><br>
+Your health matters to me.<br>
+You matter to me.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>Promise Under The Stars</h1>
+<p>
+I don’t promise perfection.<br>
+I promise effort.<br><br>
+And I promise to never stop choosing you.<br><br>
+Even when it takes patience.<br>
+Even when it takes growth.<br>
+Even when it takes slowing down.
+</p>
+<button onclick="nextPage()">Next</button>`,
+
+`<h1>Under This Same Sky, Tanisha…</h1>
+<p>
+I choose you calmly.<br>
+I choose you gently.<br>
+I choose you every time.
+</p>
+<button onclick="finalMessage()">Stay with me?</button>`
+];
+
+let currentPage = 0;
+
+function nextPage() {
+    document.getElementById("content").innerHTML = pages[currentPage];
+    currentPage++;
+}
+
+function finalMessage() {
+    document.getElementById("content").innerHTML =
+    `<h1>I love you.</h1>
+     <p>Always.</p>`;
+}
+
+// Generate stars
+const starContainer = document.querySelector(".stars");
+for (let i = 0; i < 100; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    starContainer.appendChild(star);
+}
+</script>
+
+</body>
+</html>
